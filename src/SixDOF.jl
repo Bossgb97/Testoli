@@ -225,7 +225,7 @@ function equations(dt, self, t, nt) #maybe also save a matrix to plot the
              0.0     self.mp.Iyy  0.0;
              0.0      0.0   self.mp.Izz]
     T, self.tau = thrusttorque(self, t)
-    self.omegadot = inv(I) * (self.tau - cross(self.omegaprev, I * self.omegaprev)
+    self.omegadot = inv(I) * (self.tau - cross(self.omegaprev, I * self.omegaprev))
     self.omega = self.omegaprev + dt * self.omegadot
         self.thetadot = omega2thetadot(self)
         self.theta = self.thetaprev + dt * self.thetadot
