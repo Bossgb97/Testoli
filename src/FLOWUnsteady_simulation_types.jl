@@ -166,20 +166,3 @@ function rotate_rotors(self::Simulation{V, M, R}, dt::Real
     end
     return nothing
 end
-
-
-##### INTERNAL FUNCTIONS  ######################################################
-"""
-Checks that vehicle and maneuver are compatible.
-"""
-function _check(vehicle::AbstractVehicle, maneuver::AbstractManeuver;
-                                                            raise_error=true)
-    res = get_nrtrsys(vehicle)==get_nrtrsys(maneuver)
-
-    if raise_error && res==false
-        error("Encountered incompatible Vehicle and Maneuver!")
-    end
-
-    return res
-end
-##### END OF SIMULATION  #######################################################
