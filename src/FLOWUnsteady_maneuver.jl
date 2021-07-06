@@ -248,7 +248,7 @@ A vehicle maneuver where the kinematic are prescribed.
         `[Ax, Ay, Az]` (in degrees) of the vehicle relative to the global
         coordinate system at the normalized time `t`.
 """
-mutable struct DynamicManeuver{N, M} <: AbstractManeuver{N, M}
+mutable struct DynamicManeuver{N, M}
     ttot::Real
     angle::NTuple{N, Function}
     RPM::NTuple{M, Function} #maybe change later
