@@ -89,7 +89,7 @@ function nextstep_kinematic(self::Simulation, dt::Real)
         # Angular velocity increment
         #dW = calc_dW(self.maneuver, self.vehicle, self.t, dt, self.ttot)
         dW = calc_dW(self.maneuver, dt, self.t, self.nt)
-        
+
         # Update vehicle linear and angular velocity
         add_dV(self.vehicle, dV)
         add_dW(self.vehicle, dW)
@@ -174,8 +174,7 @@ Checks that vehicle and maneuver are compatible.
 """
 function _check(vehicle::AbstractVehicle, maneuver::AbstractManeuver;
                                                             raise_error=true)
-    res = get_ntltsys(vehicle)==get_ntltsys(maneuver)
-    res *= get_nrtrsys(vehicle)==get_nrtrsys(maneuver)
+    res = get_nrtrsys(vehicle)==get_nrtrsys(maneuver)
 
     if raise_error && res==false
         error("Encountered incompatible Vehicle and Maneuver!")
