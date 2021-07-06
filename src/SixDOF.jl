@@ -104,23 +104,7 @@ delta flaps, and throttle.
 #    throttle::TF
 #end
 
-"""
-    MassProp(m, Ixx, Iyy, Izz, Ixz, Ixy, Iyz)
 
-Mass and moments of inertia in the body frame.
-Ixx = int(y^2 + z^2, dm)
-Ixz = int(xz, dm)
-
-We can model our quadcopter as two thin uniform rods crossed at the origin with a point mass
-(motor) at the end of each. With this in mind, it’s clear that the symmetries result in a diagonal
-inertia matrix
-"""
-struct MassProp{TF}
-    m::TF
-    Ixx::TF
-    Iyy::TF
-    Izz::TF
-end
 
 
 
@@ -613,20 +597,6 @@ end
 
 #    return Fg, Mg
 #end
-
-
-"""
-    ConstantAtmosphere(Wi, Wb, rho, asound, g)
-
-Constant atmospheric properties.
-"""
-struct Atmosphere{TF,TV}
-    Wi::TV
-    Wb::TV
-    rho::TF
-    asound::TF
-    g::TF
-end
 
 
 
